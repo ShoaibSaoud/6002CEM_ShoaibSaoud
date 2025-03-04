@@ -1,0 +1,132 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheRecipeApp.Interfaces.SignUp"
+             BackgroundColor="#F8F8F8">
+
+    <Grid RowDefinitions="Auto, *" Padding="50" >
+
+        <!-- Green Background Design -->
+        <Border StrokeThickness="0"
+                BackgroundColor="#FFE079"
+                StrokeShape="RoundRectangle 800"
+                WidthRequest="450"
+                HeightRequest="470"
+                TranslationX="80"
+                TranslationY="-290"/>
+
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*" Padding="10" RowSpacing="25">
+
+            <!-- Sign Up Heading -->
+            <Label Text="Sign Up Today"
+                   FontFamily="PoppinsBold"
+                   FontSize="24"
+                   TextColor="Black"
+                   HorizontalOptions="Center"
+                   Grid.Row="0"/>
+
+            <!-- Username Entry -->
+            <Border StrokeThickness="1"
+                    Stroke="Gray"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 30"
+                    HeightRequest="55"
+                    WidthRequest="320"
+                    Padding="5"
+                    Grid.Row="1">
+
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="user_icon.png" WidthRequest="24" HeightRequest="24" TranslationX="5"/>
+                    <Entry Placeholder="Enter Your Username"
+                           FontFamily="PoppinsRegular"
+                           TextColor="Black"
+                           PlaceholderColor="Gray"
+                           BackgroundColor="White"
+                           HeightRequest="65"/>
+                </HorizontalStackLayout>
+
+            </Border>
+
+            <!-- Password Entry -->
+            <Border StrokeThickness="1"
+                    Stroke="Gray"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 30"
+                    HeightRequest="55"
+                    WidthRequest="320"
+                    Padding="5"
+                    Grid.Row="2">
+
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="lock_icon.png" WidthRequest="24" HeightRequest="24" TranslationX="5"/>
+                    <Entry Placeholder="Enter Your Password"
+                           FontFamily="PoppinsRegular"
+                           IsPassword="True"
+                           TextColor="Black"
+                           PlaceholderColor="Gray"
+                           BackgroundColor="White"
+                           HeightRequest="65"/>
+                    <Image Source="eye_icon.png" WidthRequest="24" HeightRequest="24"/>
+                </HorizontalStackLayout>
+
+            </Border>
+
+            <!-- Confirm Password Entry -->
+            <Border StrokeThickness="1"
+                    Stroke="Gray"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 30"
+                    HeightRequest="55"
+                    WidthRequest="320"
+                    Padding="5"
+                    Grid.Row="3">
+
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="lock_icon.png" WidthRequest="24" HeightRequest="24" TranslationX="5"/>
+                    <Entry Placeholder="Enter Confirm Password"
+                           FontFamily="PoppinsRegular"
+                           IsPassword="True"
+                           TextColor="Black"
+                           PlaceholderColor="Gray"
+                           BackgroundColor="White"
+                           HeightRequest="65"/>
+                    <Image Source="eye_icon.png" WidthRequest="24" HeightRequest="24"/>
+                </HorizontalStackLayout>
+
+            </Border>
+
+            <!-- Sign Up Button -->
+            <Button Text="Sign Up"
+                    FontFamily="PoppinsBold"
+                    FontSize="18"
+                    BackgroundColor="#D7FF81"
+                    TextColor="Black"
+                    HeightRequest="55"
+                    CornerRadius="30"
+                    Grid.Row="4"/>
+
+            <!-- 'Or continue with' Text -->
+            <Label Text="OR "
+                   FontFamily="PoppinsRegular"
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"
+                   Grid.Row="5"/>
+
+            <!-- Login Button -->
+            <Button Text=" Login"
+                    FontFamily="PoppinsBold"
+                    FontSize="18"
+                    BackgroundColor="#FFE079"
+                    TextColor="Black"
+                    HeightRequest="55"
+                    CornerRadius="30"
+                    Grid.Row="6"
+                    Clicked="ToLoginPage">
+              
+            </Button>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheRecipeApp.Interfaces.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="30">
+            <Border
+    StrokeThickness="0"
+    BackgroundColor="#FFE079"  
+    StrokeShape="RoundRectangle 800"
+    WidthRequest="450"
+    HeightRequest="470"
+    TranslationX="-60"
+    TranslationY="-60">
+
+
+                <Image
+        Source="dishes.png"
+        HeightRequest="270"
+        Aspect="AspectFit"
+        SemanticProperties.Description="Food image"
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+                     TranslationX="50"
+             TranslationY="30"/>
+
+            </Border>
+
+
+            <Label
+                Text="Start Cooking"
+                FontFamily="PoppinsBold"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Let's join our community to cook better food"
+                FontFamily="PoppinsLight"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Let's join our community to cook better food" />
+
+            <Button
+    Text="Get Started"
+    BackgroundColor="#D7FF81"
+    TextColor="Black"
+    FontFamily="PoppinsBold"
+    FontSize="20"
+    HeightRequest="55"
+    Padding="18,8"
+    CornerRadius="30" 
+    WidthRequest="350"
+    Clicked="GetstartedButton_Clicked"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label
+        Text="Don't have an account? "
+        FontFamily="PoppinsRegular"
+        FontSize="Medium"
+        Style="{StaticResource SubHeadline}"
+        SemanticProperties.HeadingLevel="Level9"
+        SemanticProperties.Description="Don't have an account?" />
+
+                <Label
+    Text="Sign Up"
+    FontFamily="PoppinsBold"
+    FontSize="Medium"
+    TextColor="#ABCC65" 
+    Style="{StaticResource SubHeadline}"
+    SemanticProperties.HeadingLevel="Level9"
+    SemanticProperties.Description="Sign Up">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSignUpLabelTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+
+
+
+            </HorizontalStackLayout>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

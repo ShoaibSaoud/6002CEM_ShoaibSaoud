@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheRecipeApp.Interfaces.HomePage"
+             Title="HomePage">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Main Content -->
+        <VerticalStackLayout Padding="20" Grid.Row="0">
+            <Label Text="Search"
+                   FontFamily="PoppinsBold"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+
+            <Label Text="What is in your kitchen?"
+                   FontFamily="PoppinsBold"
+                   FontSize="20"
+                   TextColor="Black"/>
+
+            <Label Text="Enter some Recipes"
+                   FontFamily="PoppinsRegular"
+                   FontSize="14"
+                   TextColor="Gray"/>
+
+            <!-- Search Bar -->
+            <Border BackgroundColor="White"
+                    StrokeShape="RoundRectangle 25"
+                    Stroke="#D7FF81"
+                    Padding="8">
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="search_icon.png" WidthRequest="24" HeightRequest="24"/>
+                    <Entry Placeholder="Type your Recipe"
+                           FontFamily="PoppinsRegular"
+                           TextColor="Black"
+                           PlaceholderColor="Gray"/>
+                </HorizontalStackLayout>
+            </Border>
+
+            <!-- Recipe Grid -->
+            <CollectionView ItemsLayout="Grid, 2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="White"
+                                StrokeShape="RoundRectangle 15"
+                                Padding="10"
+                                Margin="5">
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+        <!-- Bottom Navigation Bar -->
+        <Grid BackgroundColor="#D7FF81"
+              HeightRequest="60"
+              Grid.Row="1"
+              VerticalOptions="End">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                <Image Source="home_icon.png" WidthRequest="24"/>
+                <Label Text="Home" FontSize="12" TextColor="Black"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                <Image Source="community_icon.png" WidthRequest="24"/>
+                <Label Text="Community" FontSize="12" TextColor="Black"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                <Image Source="shopping_icon.png" WidthRequest="24"/>
+                <Label Text="Shopping List" FontSize="12" TextColor="Black"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center">
+                <Image Source="favorite_icon.png" WidthRequest="24"/>
+                <Label Text="Favorite" FontSize="12" TextColor="Black"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center">
+                <Image Source="profile_icon.png" WidthRequest="24"/>
+                <Label Text="Profile" FontSize="12" TextColor="Black"/>
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

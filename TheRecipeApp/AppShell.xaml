@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TheRecipeApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:interface="clr-namespace:TheRecipeApp.Interfaces"
+    Shell.FlyoutBehavior="Flyout"
+    Title="TheRecipeApp">
+
+    <ShellContent
+        Title="The Recipe App"
+        ContentTemplate="{DataTemplate interface:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Question 1"
+        ContentTemplate="{DataTemplate interface:Intro1}"
+        Route="Intro1" />
+
+    <ShellContent
+       Title="Question 2"
+       ContentTemplate="{DataTemplate interface:Intro2}"
+       Route="Intro2" />
+
+    <ShellContent
+       Title="Sign Up"
+       ContentTemplate="{DataTemplate interface:SignUp}"
+       Route="SignUp" />
+
+    <ShellContent
+      Title="Login"
+      ContentTemplate="{DataTemplate interface:Login}"
+      Route="Login" />
+
+    <ShellContent
+       Title="Home"
+       ContentTemplate="{DataTemplate interface:HomePage}"
+       Route="HomePage" />
+    
+    
+
+</Shell>

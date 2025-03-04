@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheRecipeApp.Interfaces.Intro2"
+            Title="Question 2"
+            BackgroundColor="#D7FF81"
+            Shell.NavBarIsVisible="False">
+    <VerticalStackLayout>
+
+
+
+        <Border
+StrokeThickness="0"
+BackgroundColor="#FFE079"  
+StrokeShape="RoundRectangle 800"
+WidthRequest="450"
+HeightRequest="470"
+TranslationX="-100"
+TranslationY="-200"/>
+
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10">
+
+            <!-- Progress Text -->
+            <Label 
+        Text="2 of 2"
+        FontSize="16"
+        FontAttributes="Bold"
+        TextColor="Black"
+        VerticalOptions="Center" 
+        TranslationY="-470"/>
+
+            <!-- Progress Bar -->
+            <ProgressBar 
+        x:Name="progressBar"
+        Progress="1"
+        HeightRequest="2"
+        WidthRequest="300"
+        BackgroundColor="White"
+        ProgressColor="#A1C84C"
+        VerticalOptions="Center"
+        Margin="15,5,5,5" 
+        TranslationY="-470"     />
+        </StackLayout>
+
+
+        <Label 
+Text="Personalize your experience
+by creating an account"
+FontFamily="PoppinsBold"
+FontSize="20"
+Style="{StaticResource SubHeadline}"
+HorizontalOptions="Start" 
+             TranslationY="-450"
+        Margin="10,20,0,0" />
+
+
+        <Label 
+Text="We’ll save your dietary preferences 
+and make personalized recipe recommedation"
+FontFamily="PoppinsRegular"
+FontSize="16"
+Style="{StaticResource SubHeadline}"
+HorizontalOptions="Start" 
+             TranslationY="-450"
+        Margin="10,40,0,0" />
+
+
+        <Image
+      Source="cook.png"
+      HeightRequest="270"
+      Aspect="AspectFit"
+      SemanticProperties.Description="Food image"
+      VerticalOptions="Center"
+      HorizontalOptions="Center"
+                   TranslationX="10"
+           TranslationY="-400"/>
+
+
+        <Button
+    Text="Signup"
+    BackgroundColor="White"
+    TextColor="Black"
+    FontFamily="PoppinsBold"
+    FontSize="20"
+    HeightRequest="55"
+    Padding="18,8"
+    CornerRadius="10" 
+    WidthRequest="350"
+    TranslationY="-350"
+    Clicked="SignUpButtton"/>
+
+
+        <Label
+ Text="Maybe Later"
+ FontFamily="PoppinsBold"
+ FontSize="18"
+ TextColor="Black" 
+ SemanticProperties.HeadingLevel="Level9"
+ SemanticProperties.Description="Sign Up"
+              VerticalOptions="Center"
+  HorizontalOptions="Center"
+            TranslationY="-320">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="HomePageLabelTapped" />
+            </Label.GestureRecognizers>
+        </Label>
+
+
+    </VerticalStackLayout>
+</ContentPage>

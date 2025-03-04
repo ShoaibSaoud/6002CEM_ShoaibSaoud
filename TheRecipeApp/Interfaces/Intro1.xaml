@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheRecipeApp.Interfaces.Intro1"
+             Shell.NavBarIsVisible="False"
+             Title="Question 1"
+             BackgroundColor="#D7FF81">
+
+
+    <VerticalStackLayout>
+
+
+
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10">
+            <!-- Progress Text -->
+            <Label 
+        Text="1 of 2"
+        FontSize="16"
+        FontAttributes="Bold"
+        TextColor="Black"
+        VerticalOptions="Center" />
+
+            <!-- Progress Bar -->
+            <ProgressBar 
+        x:Name="progressBar"
+        Progress="0.5"
+        HeightRequest="2"
+        WidthRequest="300"
+        BackgroundColor="White"
+        ProgressColor="#A1C84C"
+        VerticalOptions="Center"
+        Margin="15,5,5,5" />
+        </StackLayout>
+
+
+        <Label 
+    Text="A Few Quick Questions"
+    FontFamily="PoppinsBold"
+    FontSize="Small"
+    Style="{StaticResource SubHeadline}"
+    HorizontalOptions="Start" 
+            Margin="30,30,0,0" />
+
+
+        <Label 
+Text="Are You a Vegetarian ?"
+FontFamily="PoppinsBold"
+FontSize="20"
+Style="{StaticResource SubHeadline}"
+HorizontalOptions="Start" 
+        Margin="30,20,0,0" />
+
+
+        <HorizontalStackLayout >
+            <Border
+StrokeThickness="0"
+BackgroundColor="White"  
+StrokeShape="RoundRectangle 10"
+WidthRequest="355"
+HeightRequest="90"
+ Margin="30,60,0,0"      >
+
+                <Image
+    Source="nonveg.png"
+    HeightRequest="75"
+    Aspect="AspectFit"
+    SemanticProperties.Description="Food image"
+                    Margin="10,0,280,0"/>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizers_Tapped"/>
+                </Border.GestureRecognizers>
+
+
+            </Border>
+            <Label
+Text=" Nope,Show Me All Recipes"
+FontFamily="PoppinsBold"
+FontSize="Medium"
+TextColor="Black"         
+SemanticProperties.HeadingLevel="Level9"
+SemanticProperties.Description="Sign Up"     
+                Margin="-270,90,0,0"/>
+
+        </HorizontalStackLayout>
+
+
+
+        <HorizontalStackLayout >
+            <Border
+StrokeThickness="0"
+BackgroundColor="White"  
+StrokeShape="RoundRectangle 10"
+WidthRequest="355"
+HeightRequest="90"
+ Margin="30,30,0,0"      >
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizers_Tapped"/>
+                </Border.GestureRecognizers>
+                <Image
+    Source="veg.png"
+    HeightRequest="75"
+    Aspect="AspectFit"
+    SemanticProperties.Description="Food image"
+                    Margin="10,0,280,0"/>
+
+
+            </Border>
+            <Label
+Text="Yes, Hide Non-Veg Recipes"
+FontFamily="PoppinsBold"
+FontSize="Medium"
+TextColor="Black"         
+SemanticProperties.HeadingLevel="Level9"
+SemanticProperties.Description="Sign Up"     
+                Margin="-270,60,0,0"/>
+
+        </HorizontalStackLayout>
+
+        <Border
+StrokeThickness="0"
+BackgroundColor="#FFE079"  
+StrokeShape="RoundRectangle 800"
+WidthRequest="450"
+HeightRequest="470"
+TranslationX="120"
+TranslationY="120"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>
