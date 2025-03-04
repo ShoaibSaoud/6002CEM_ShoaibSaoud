@@ -36,7 +36,8 @@
 
                 <HorizontalStackLayout Spacing="10">
                     <Image Source="user_icon.png" WidthRequest="24" HeightRequest="24" TranslationX="5"/>
-                    <Entry Placeholder="Enter Your Username"
+                    <Entry x:Name="usernameEntry"
+                           Placeholder="Enter Your Username"
                            FontFamily="PoppinsRegular"
                            TextColor="Black"
                            PlaceholderColor="Gray"
@@ -58,7 +59,8 @@
 
                 <HorizontalStackLayout Spacing="10">
                     <Image Source="lock_icon.png" WidthRequest="24" HeightRequest="24" TranslationX="5"/>
-                    <Entry Placeholder="Enter Your Password"
+                    <Entry x:Name="passwordEntry"
+                           Placeholder="Enter Your Password"
                            FontFamily="PoppinsRegular"
                            IsPassword="True"
                            TextColor="Black"
@@ -82,7 +84,8 @@
 
                 <HorizontalStackLayout Spacing="10">
                     <Image Source="lock_icon.png" WidthRequest="24" HeightRequest="24" TranslationX="5"/>
-                    <Entry Placeholder="Enter Confirm Password"
+                    <Entry x:Name="confirmPasswordEntry"
+                           Placeholder="Enter Confirm Password"
                            FontFamily="PoppinsRegular"
                            IsPassword="True"
                            TextColor="Black"
@@ -102,7 +105,8 @@
                     TextColor="Black"
                     HeightRequest="55"
                     CornerRadius="30"
-                    Grid.Row="4"/>
+                    Grid.Row="4"
+                    Clicked="OnSignUpClicked"/>
 
             <!-- 'Or continue with' Text -->
             <Label Text="OR "
