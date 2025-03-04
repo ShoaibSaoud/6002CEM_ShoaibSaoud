@@ -16,7 +16,7 @@
 
         <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*" Padding="10" RowSpacing="25">
 
-            <!-- Login Heading -->
+         
             <Label Text="Login"
                    FontFamily="PoppinsBold"
                    FontSize="24"
@@ -83,7 +83,7 @@
                     Grid.Row="3"
                     Clicked="OnLoginClicked"/>
 
-            <!-- 'Or continue with' Text -->
+           
             <Label Text="Or continue with"
                    FontFamily="PoppinsRegular"
                    FontSize="14"
@@ -91,7 +91,7 @@
                    HorizontalOptions="Center"
                    Grid.Row="4"/>
 
-            <!-- Google Sign-In Button -->
+            <!-- signup Button -->
             <Button Text=" Sign Up"
                     FontFamily="PoppinsBold"
                     FontSize="18"

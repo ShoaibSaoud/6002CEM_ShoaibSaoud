@@ -1,10 +1,8 @@
 ﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TheRecipeApp.Models;
+using Microsoft.Maui.Storage;
+
 namespace TheRecipeApp.Services
 {
     public class DatabaseService
@@ -18,15 +16,47 @@ namespace TheRecipeApp.Services
         }
 
         // Register new user
-        public Task<int> RegisterUser(User user)
+        public async Task<int> RegisterUser(User user)
         {
-            return _database.InsertAsync(user);
+            var existingUser = await _database.Table<User>().Where(u => u.Username == user.Username).FirstOrDefaultAsync();
+
+            if (existingUser != null)
+            {
+                return 0; // user already exists
+            }
+
+            return await _database.InsertAsync(user);
         }
 
-        // Check if the user exists (for login)
-        public Task<User> LoginUser(string username, string password)
+        // Login User
+        public async Task<User> LoginUser(string username, string password)
         {
-            return _database.Table<User>().Where(u => u.Username == username && u.Password == password).FirstOrDefaultAsync();
+            var user = await _database.Table<User>()
+                                      .Where(u => u.Username == username && u.Password == password)
+                                      .FirstOrDefaultAsync();
+
+            if (user != null)
+            {
+                // Store user session
+                Preferences.Set("LoggedInUsername", user.Username);
+            }
+
+            return user;
+        }
+
+       
+        public void LogoutUser()
+        {
+            Preferences.Remove("LoggedInUsername");
+
+          
+            AppShell.Instance.UpdateUserStatus();
+        }
+
+        // Get Logged-in User
+        public string GetLoggedInUsername()
+        {
+            return Preferences.Get("LoggedInUsername", "User Not Logged In");
         }
     }
 }

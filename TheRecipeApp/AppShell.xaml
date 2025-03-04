@@ -7,6 +7,11 @@
     Shell.FlyoutBehavior="Flyout"
     Title="TheRecipeApp">
 
+    <Shell.ToolbarItems>
+        <ToolbarItem Text="{Binding UserStatus}" Order="Primary" Priority="0" />
+        <ToolbarItem Text="SignIn/SignOut" Clicked="OnLogoutClicked" Order="Primary" Priority="1" />
+    </Shell.ToolbarItems>
+
     <ShellContent
         Title="The Recipe App"
         ContentTemplate="{DataTemplate interface:MainPage}"

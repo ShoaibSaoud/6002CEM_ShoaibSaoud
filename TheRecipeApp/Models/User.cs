@@ -15,6 +15,6 @@ namespace TheRecipeApp.Models
         [Unique]
         public string Username { get; set; }
 
-        public string Password { get; set; } // In a real-world app, always hash passwords
+        public string Password { get; set; } 
     }
 }

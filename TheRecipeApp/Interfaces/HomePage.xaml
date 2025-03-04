@@ -8,11 +8,14 @@
 
         <!-- Main Content -->
         <VerticalStackLayout Padding="20" Grid.Row="0">
-            <Label Text="Search"
+           
+            <Label x:Name="userStatusLabel" 
+                   FontSize="18" 
                    FontFamily="PoppinsBold"
-                   FontSize="24"
-                   HorizontalOptions="Center"
-                   TextColor="Black"/>
+                   TextColor="Black"
+                   HeightRequest="50"/>
+            
+     
 
             <Label Text="What is in your kitchen?"
                    FontFamily="PoppinsBold"
@@ -37,6 +40,7 @@
                            PlaceholderColor="Gray"/>
                 </HorizontalStackLayout>
             </Border>
+            
 
             <!-- Recipe Grid -->
             <CollectionView ItemsLayout="Grid, 2">

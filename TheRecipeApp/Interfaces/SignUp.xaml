@@ -108,7 +108,7 @@
                     Grid.Row="4"
                     Clicked="OnSignUpClicked"/>
 
-            <!-- 'Or continue with' Text -->
+       
             <Label Text="OR "
                    FontFamily="PoppinsRegular"
                    FontSize="16"
@@ -116,7 +116,7 @@
                    HorizontalOptions="Center"
                    Grid.Row="5"/>
 
-            <!-- Login Button -->
+            <!-- login Button -->
             <Button Text=" Login"
                     FontFamily="PoppinsBold"
                     FontSize="18"

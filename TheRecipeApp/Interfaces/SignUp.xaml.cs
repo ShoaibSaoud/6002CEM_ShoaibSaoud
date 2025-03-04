@@ -13,7 +13,7 @@ namespace TheRecipeApp.Interfaces
             _databaseService = databaseService;
         }
 
-        // Event handler for Sign Up Button click
+        // Event handler 
         private async void OnSignUpClicked(object sender, EventArgs e)
         {
             var username = usernameEntry.Text;
@@ -37,7 +37,7 @@ namespace TheRecipeApp.Interfaces
             var newUser = new User
             {
                 Username = username,
-                Password = password  // Hash the password for production apps!
+                Password = password  
             };
 
             // Register the user in the database
@@ -45,18 +45,18 @@ namespace TheRecipeApp.Interfaces
 
             if (result > 0)
             {
-                // Success: Navigate to Login page
+              
                 await DisplayAlert("Success", "Account created!", "OK");
                 await Shell.Current.GoToAsync("//Login");
             }
             else
             {
-                // Failure: Handle error (e.g., user already exists)
+               
                 await DisplayAlert("Error", "Registration failed. Try again.", "OK");
             }
         }
 
-        // Navigate to Login Page
+        // navigate to Login Page
         private async void ToLoginPage(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("///Login");
