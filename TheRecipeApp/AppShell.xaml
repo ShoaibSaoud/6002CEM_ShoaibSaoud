@@ -4,6 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:interface="clr-namespace:TheRecipeApp.Interfaces"
+    Shell.TabBarBackgroundColor="#D7FF81"
+    Shell.TabBarTitleColor="DarkGray"
+    Shell.TabBarForegroundColor="#DAD6D6"
     Shell.FlyoutBehavior="Flyout"
     Title="TheRecipeApp">
 
@@ -37,11 +40,59 @@
       ContentTemplate="{DataTemplate interface:Login}"
       Route="Login" />
 
-    <ShellContent
-       Title="Home"
-       ContentTemplate="{DataTemplate interface:HomePage}"
-       Route="HomePage" />
-    
-    
+    <TabBar>
+
+        <Tab
+        Title="Home"
+        Icon="home_icon.png">
+        <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate interface:HomePage}"
+        Route="HomePage" />
+        </Tab>
+
+        <Tab
+        Title="Community"
+        Icon="community_icon.png">
+                <ShellContent
+        Title="Community"
+        ContentTemplate="{DataTemplate interface:CommunityPage}"
+        Route="CommunityPage" />
+        </Tab>
+
+        <Tab
+        Title="Shopping List"
+        Icon="shopping_icon.png">
+            <ShellContent
+        Title="Shopping List"
+        ContentTemplate="{DataTemplate interface:ShoppingListPage}"
+        Route="ShoppingList" />
+        </Tab>
+
+
+        <Tab
+        Title="Favorite"
+        Icon="favorite_icon.png">
+                <ShellContent
+        Title="Community"
+        ContentTemplate="{DataTemplate interface:FavPage}"
+        Route="FavPage" />
+        </Tab>
+
+        <Tab
+        Title="Profile"
+        Icon="profile_icon.png">
+                <ShellContent
+        Title="Profile"
+        ContentTemplate="{DataTemplate interface:ProfilePage}"
+        Route="CommunityPage" />
+        </Tab>
+
+
+
+
+    </TabBar>
+
+
 
 </Shell>

@@ -28,6 +28,7 @@ namespace TheRecipeApp
             InitializeComponent();
             Instance = this; 
             UpdateUserStatus();
+
         }
 
         public void UpdateUserStatus()

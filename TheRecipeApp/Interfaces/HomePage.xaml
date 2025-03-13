@@ -43,61 +43,11 @@
             
 
             <!-- Recipe Grid -->
-            <CollectionView ItemsLayout="Grid, 2">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Border BackgroundColor="White"
-                                StrokeShape="RoundRectangle 15"
-                                Padding="10"
-                                Margin="5">
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
 
-        </VerticalStackLayout>
+           </VerticalStackLayout>
 
-        <!-- Bottom Navigation Bar -->
-        <Grid BackgroundColor="#D7FF81"
-              HeightRequest="60"
-              Grid.Row="1"
-              VerticalOptions="End">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
 
-            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
-                <Image Source="home_icon.png" WidthRequest="24"/>
-                <Label Text="Home" FontSize="12" TextColor="Black"/>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
-                <Image Source="community_icon.png" WidthRequest="24"/>
-                <Label Text="Community" FontSize="12" TextColor="Black"/>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
-                <Image Source="shopping_icon.png" WidthRequest="24"/>
-                <Label Text="Shopping List" FontSize="12" TextColor="Black"/>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center">
-                <Image Source="favorite_icon.png" WidthRequest="24"/>
-                <Label Text="Favorite" FontSize="12" TextColor="Black"/>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center">
-                <Image Source="profile_icon.png" WidthRequest="24"/>
-                <Label Text="Profile" FontSize="12" TextColor="Black"/>
-            </VerticalStackLayout>
-
-        </Grid>
-
-    </Grid>
+    </Grid> 
 
 </ContentPage>

@@ -1,4 +1,6 @@
 using Microsoft.Maui.Storage;
+using System;
+
 
 namespace TheRecipeApp.Interfaces
 {
@@ -8,12 +10,13 @@ namespace TheRecipeApp.Interfaces
         {
             InitializeComponent();
             UpdateUserStatus();
+         
         }
 
         private void UpdateUserStatus()
         {
             var loggedInUser = Preferences.Get("LoggedInUsername", "");
-            userStatusLabel.Text = string.IsNullOrEmpty(loggedInUser) ? "User Not Logged In" : $"Logged in as: {loggedInUser}";
+            userStatusLabel.Text = string.IsNullOrEmpty(loggedInUser) ? "User Not Logged In" : $"Welcome: {loggedInUser}!";
         }
 
         protected override void OnAppearing()
