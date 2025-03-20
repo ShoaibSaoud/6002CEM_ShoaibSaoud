@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheRecipeApp.Interfaces.ShoppingListPage"
              Title="Shopping List"
              BackgroundColor="White">
-    <Grid RowDefinitions="Auto, *">
 
-        <!-- Header -->
+    <Grid RowDefinitions="Auto, *">
+  
         <Label Text="Shopping List"
                FontSize="24"
                FontAttributes="Bold"
@@ -15,67 +14,85 @@
                VerticalOptions="Start"
                Padding="15"/>
 
-        <!-- Main Content -->
-        <VerticalStackLayout Grid.Row="1"
-                             Padding="20"
-                             Spacing="10">
+      
+        <ScrollView Grid.Row="1" Padding="20">
+            <VerticalStackLayout Spacing="15">
+            
+                <Label Text="Groceries List"
+                       FontSize="18"
+                       FontFamily="PoppinsBold"
+                       Padding="5"/>
 
-            <!-- Section Title -->
-            <Label Text="Groceries"
-                   FontSize="18"
-                   FontFamily="Poppins"
-                   FontAttributes="Bold"/>
+  
+                <HorizontalStackLayout Padding="5"
+                                       Spacing="10"
+                                       VerticalOptions="Center">
+                    <Entry x:Name="NewItemEntry"
+                           Placeholder="Add New"
+                           BackgroundColor="White"
+                           FontSize="14"
+                           FontFamily="Poppins"
+                           HeightRequest="40"
+                           WidthRequest="250"
+                           HorizontalOptions="Start"
+                           Text="{Binding NewItemText}"/>
 
-            <!-- Input + Add Button -->
-            <HorizontalStackLayout Padding="5"
-                                   Spacing="10"
-                                   VerticalOptions="Center">
-                <Entry x:Name="NewItemEntry"
-                       Placeholder="Add New"
-                       BackgroundColor="White"
-                       FontSize="14"
+                    <Button x:Name="AddItemButton"
+                            Text="+" 
+                            FontSize="20"
+                            BackgroundColor="Transparent"
+                            TextColor="Black"
+                            Command="{Binding AddItemCommand}"
+                            HorizontalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <!-- Items List -->
+                <Label Text="Items"
+                       FontSize="16"
+                       FontAttributes="Bold"
                        FontFamily="Poppins"
-                       HeightRequest="40"
-                       WidthRequest="250"
-                     
-                      />
+                       Padding="5"/>
 
-                <Button Text="+"
-                        FontSize="20"
-                        BackgroundColor="Transparent"
-                        TextColor="Black"
-                        Clicked="OnAddItemClicked"/>
-            </HorizontalStackLayout>
+                <CollectionView x:Name="ShoppingListView"
+                                ItemsSource="{Binding ShoppingItems}"
+                                Margin="0,10"
+                                SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Main content of each item -->
+                            <Grid Padding="10"
+                                  ColumnDefinitions="Auto, *, Auto"
+                                  RowDefinitions="Auto">
+                                <!-- CheckBox -->
+                                <CheckBox IsChecked="{Binding IsChecked}" 
+                                          Color="#D7FF81"
+                                          HorizontalOptions="Center"
+                                          VerticalOptions="Center" />
 
-            <!-- Items List -->
-            <Label Text="Items"
-                   FontSize="16"
-                   FontAttributes="Bold"
-                   FontFamily="Poppins"
-                   Padding="5"/>
+                                <!-- Item Name -->
+                                <Label Text="{Binding Name}" 
+                                       FontSize="14"
+                                       FontFamily="Poppins"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       Grid.Column="1" 
+                                       Margin="10,0" />
 
-            <CollectionView x:Name="ShoppingListView"
-                            ItemsSource="{Binding ShoppingItems}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <HorizontalStackLayout Padding="5" Spacing="10">
-                            <CheckBox IsChecked="{Binding IsChecked}" Color="#4DD0E1"/>
-                            <Label Text="{Binding Name}" 
-                                   FontSize="14"
-                                   FontFamily="Poppins"/>
-                            <ImageButton Source="delete_icon.png"
-                                         HeightRequest="20"
-                                         WidthRequest="20"
-                                         BackgroundColor="Transparent"
-                                         Command="{Binding RemoveCommand}"
-                                         CommandParameter="{Binding .}"/>
-                        </HorizontalStackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
+                                <!-- Delete Button -->
+                                <Button Text="Delete"
+                                        BackgroundColor="Transparent"
+                                        TextColor="Red"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.RemoveItemCommand}"
+                                        CommandParameter="{Binding .}"
+                                        Grid.Column="2"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
-     
-
+            </VerticalStackLayout>
+        </ScrollView>
     </Grid>
 </ContentPage>

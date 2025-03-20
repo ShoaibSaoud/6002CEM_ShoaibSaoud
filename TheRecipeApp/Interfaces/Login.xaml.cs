@@ -28,10 +28,10 @@ namespace TheRecipeApp.Interfaces
 
             if (user != null)
             {
-                Preferences.Set("LoggedInUsername", user.Username);
+                Preferences.Set("LoggedInUsername", user.Username);  // Ensure the username is saved
+                Preferences.Set("IsLoggedIn", true); // Ensure that login state is saved
 
-             
-                AppShell.Instance.UpdateUserStatus();
+                AppShell.Instance.UpdateUserStatus();  // Assuming this updates UI elements based on login state
 
                 await DisplayAlert("Success", $"Login Successful!\nWelcome {user.Username}", "OK");
                 await Shell.Current.GoToAsync("//HomePage");
