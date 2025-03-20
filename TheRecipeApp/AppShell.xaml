@@ -40,6 +40,11 @@
       ContentTemplate="{DataTemplate interface:Login}"
       Route="Login" />
 
+    <ShellContent
+    Title="Recipe Details"
+    ContentTemplate="{DataTemplate interface:RecipeDetailPage}"
+    Route="RecipeDetailPage" />
+
     <TabBar>
 
         <Tab

@@ -28,7 +28,7 @@ namespace TheRecipeApp.Services
                 apiUrl += $"&tags={tag}";
 
             if (!string.IsNullOrEmpty(query))
-                apiUrl += $"&query={query}";  // Re-added query parameter
+                apiUrl += $"&query={query}";  
 
             var response = await _client.GetStringAsync(apiUrl);
             var recipes = JsonConvert.DeserializeObject<RandomRecipeResponse>(response);

@@ -2,20 +2,23 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheRecipeApp.Interfaces.HomePage"
+             xmlns:ViewModels="clr-namespace:TheRecipeApp.ViewModels"
              Title="HomePage">
 
+    <ContentPage.BindingContext>
+        <ViewModels:HomePageViewModel />
+    </ContentPage.BindingContext>
+    
     <Grid RowDefinitions="Auto,*">
 
         <!-- Main Content -->
         <VerticalStackLayout Padding="20" Grid.Row="0">
-           
+
             <Label x:Name="userStatusLabel" 
                    FontSize="18" 
                    FontFamily="PoppinsBold"
                    TextColor="Black"
                    HeightRequest="50"/>
-            
-     
 
             <Label Text="What is in your kitchen?"
                    FontFamily="PoppinsBold"
@@ -33,21 +36,99 @@
                     Stroke="#D7FF81"
                     Padding="8">
                 <HorizontalStackLayout Spacing="10">
-                    <Image Source="search_icon.png" WidthRequest="24" HeightRequest="24"/>
-                    <Entry Placeholder="Type your Recipe"
+                    <Image Source="search_icon.png" WidthRequest="24" HeightRequest="24">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSearchIconTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <!-- Bind to SearchText -->
+                    <Entry Placeholder="Search Your Recipe"
                            FontFamily="PoppinsRegular"
                            TextColor="Black"
-                           PlaceholderColor="Gray"/>
+                           PlaceholderColor="Gray"
+                           Text="{Binding SearchText}" 
+                           ReturnType="Search"
+                           Completed="OnSearchIconTapped" />
                 </HorizontalStackLayout>
             </Border>
-            
+
+            <!-- filter by tag -->
+            <Border StrokeShape="RoundRectangle 20"
+                    StrokeThickness="1"
+                    Stroke="Gray"
+                    BackgroundColor="#D7FF81"
+                    Padding="5"
+                    Margin="0,20,0,15">
+                <Picker x:Name="tagPicker"
+                    ItemsSource="{Binding Tags}"
+                    SelectedItem="{Binding SelectedTag}"
+                    SelectedIndexChanged="OnTagSelected"
+                    Title="Filter"
+                    TextColor="Black"
+                    FontFamily="PoppinsRegular"
+                    FontSize="16"
+                    WidthRequest="150"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"/>
+            </Border>
 
             <!-- Recipe Grid -->
+            <CollectionView x:Name="recipeCollectionView" 
+                            SelectionMode="Single"
+                            SelectionChanged="OnItemTapped"
+                            HeightRequest="500"
+                            ItemsSource="{Binding FilteredRecipes}">
 
-           </VerticalStackLayout>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
 
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0" CornerRadius="10" Margin="5" HasShadow="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemTappedCommand" />
+                            </Frame.GestureRecognizers>
 
+                            <VerticalStackLayout>
+                                <Frame Padding="0" CornerRadius="10" HasShadow="False">
+                                    <Image Source="{Binding Image}" HeightRequest="150" Aspect="AspectFill"/>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnItemTappedCommand" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="16"  FontFamily="PoppinsBold" Margin="5,5,5,0"/>
 
-    </Grid> 
+                                <VerticalStackLayout Padding="5" Spacing="5" VerticalOptions="Center">
+                                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                        <!-- Time -->
+                                        <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                                            <Image Source="clock.png" HeightRequest="16" WidthRequest="16"/>
+                                            <Label Text="{Binding ReadyInMinutes, StringFormat='{0} min'}" FontSize="14"
+                                                    FontFamily="PoppinsRegular" VerticalTextAlignment="Center"/>
+                                        </HorizontalStackLayout>
+
+                                        <!-- Likes -->
+                                        <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                                            <Image Source="like.png" HeightRequest="16" WidthRequest="16"/>
+                                            <Label Text="{Binding AggregateLikes, StringFormat='{0} likes'}" FontSize="14"
+                                                    FontFamily="PoppinsRegular" VerticalTextAlignment="Center"/>
+                                        </HorizontalStackLayout>
+                                    </HorizontalStackLayout>
+
+                                    <!-- Servings -->
+                                    <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                                        <Image Source="serving.png" HeightRequest="16" WidthRequest="16"/>
+                                        <Label Text="{Binding Servings, StringFormat='{0} Servings'}" FontSize="14"
+                                                FontFamily="PoppinsRegular" VerticalTextAlignment="Center"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </Grid>
 
 </ContentPage>

@@ -1,9 +1,6 @@
 ﻿using TheRecipeApp.Models;
 using TheRecipeApp.Services;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
 using TheRecipeApp.Services;
 
 namespace TheRecipeApp.ViewModels
@@ -28,7 +25,7 @@ namespace TheRecipeApp.ViewModels
                 if (_searchText != value)
                 {
                     _searchText = value;
-                    FilterRecipes(); // Filter recipes whenever the search text changes
+                    FilterRecipes(); 
                 }
             }
         }
@@ -38,7 +35,7 @@ namespace TheRecipeApp.ViewModels
         public HomePageViewModel()
         {
             _apiService = new ApiService();
-
+            //filtering recipes lists
             Tags = new List<string>
             {
                 "Clear", "main course", "side dish", "dessert", "appetizer", "salad",
@@ -47,23 +44,20 @@ namespace TheRecipeApp.ViewModels
             };
         }
 
-        // Method to load random recipes from the API based on the selected tag and search query
+        // To load random recipes from the API 
         public async Task LoadRandomRecipesAsync(string tag = "", string query = "")
         {
             try
             {
                 List<Recipe> recipes;
 
-                // Fetch recipes from the API without requiring a tag or query
                 recipes = await _apiService.GetRandomRecipesAsync(tag, query);
 
-                // Ensure that recipes is not null
                 if (recipes == null || recipes.Count == 0)
                 {
-                    return; // Prevent clearing existing data if no new data is available
+                    return; 
                 }
 
-                // Clear previous data only if new data is available
                 AllRecipes.Clear();
                 FilteredRecipes.Clear();
 
@@ -75,11 +69,11 @@ namespace TheRecipeApp.ViewModels
             }
             catch (Exception ex)
             {
-                // Handle error (e.g., log it)
+               
             }
         }
 
-        // Method to filter recipes based on the search text
+        //To filter recipes based on the search text
         public void FilterRecipes()
         {
             FilteredRecipes.Clear();

@@ -2,11 +2,80 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheRecipeApp.Interfaces.ShoppingListPage"
-             Title="ShoppingListPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Shopping List"
+             BackgroundColor="White">
+    <Grid RowDefinitions="Auto, *">
+
+        <!-- Header -->
+        <Label Text="Shopping List"
+               FontSize="24"
+               FontAttributes="Bold"
+               FontFamily="Poppins"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               Padding="15"/>
+
+        <!-- Main Content -->
+        <VerticalStackLayout Grid.Row="1"
+                             Padding="20"
+                             Spacing="10">
+
+            <!-- Section Title -->
+            <Label Text="Groceries"
+                   FontSize="18"
+                   FontFamily="Poppins"
+                   FontAttributes="Bold"/>
+
+            <!-- Input + Add Button -->
+            <HorizontalStackLayout Padding="5"
+                                   Spacing="10"
+                                   VerticalOptions="Center">
+                <Entry x:Name="NewItemEntry"
+                       Placeholder="Add New"
+                       BackgroundColor="White"
+                       FontSize="14"
+                       FontFamily="Poppins"
+                       HeightRequest="40"
+                       WidthRequest="250"
+                     
+                      />
+
+                <Button Text="+"
+                        FontSize="20"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        Clicked="OnAddItemClicked"/>
+            </HorizontalStackLayout>
+
+            <!-- Items List -->
+            <Label Text="Items"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   FontFamily="Poppins"
+                   Padding="5"/>
+
+            <CollectionView x:Name="ShoppingListView"
+                            ItemsSource="{Binding ShoppingItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Padding="5" Spacing="10">
+                            <CheckBox IsChecked="{Binding IsChecked}" Color="#4DD0E1"/>
+                            <Label Text="{Binding Name}" 
+                                   FontSize="14"
+                                   FontFamily="Poppins"/>
+                            <ImageButton Source="delete_icon.png"
+                                         HeightRequest="20"
+                                         WidthRequest="20"
+                                         BackgroundColor="Transparent"
+                                         Command="{Binding RemoveCommand}"
+                                         CommandParameter="{Binding .}"/>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+     
+
+    </Grid>
 </ContentPage>

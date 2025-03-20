@@ -5,12 +5,7 @@
              Shell.NavBarIsVisible="False"
              Title="Question 1"
              BackgroundColor="#D7FF81">
-
-
     <VerticalStackLayout>
-
-
-
 
         <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10">
             <!-- Progress Text -->
@@ -68,9 +63,9 @@ HeightRequest="90"
     SemanticProperties.Description="Food image"
                     Margin="10,0,280,0"/>
 
-                <Border.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizers_Tapped"/>
-                </Border.GestureRecognizers>
+    <Border.GestureRecognizers>
+        <TapGestureRecognizer Tapped="TapGestureRecognizers_Tapped"/>
+    </Border.GestureRecognizers>
 
 
             </Border>
@@ -85,8 +80,6 @@ SemanticProperties.Description="Sign Up"
 
         </HorizontalStackLayout>
 
-
-
         <HorizontalStackLayout >
             <Border
 StrokeThickness="0"
@@ -94,10 +87,10 @@ BackgroundColor="White"
 StrokeShape="RoundRectangle 10"
 WidthRequest="355"
 HeightRequest="90"
- Margin="30,30,0,0"      >
-                <Border.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizers_Tapped"/>
-                </Border.GestureRecognizers>
+ Margin="30,30,0,0">
+    <Border.GestureRecognizers>
+        <TapGestureRecognizer Tapped="TapGestureRecognizers_Tapped"/>
+    </Border.GestureRecognizers>
                 <Image
     Source="veg.png"
     HeightRequest="75"
@@ -126,7 +119,5 @@ WidthRequest="450"
 HeightRequest="470"
 TranslationX="120"
 TranslationY="120"/>
-
-
     </VerticalStackLayout>
 </ContentPage>
