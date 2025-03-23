@@ -41,6 +41,15 @@
                 </HorizontalStackLayout>
             </VerticalStackLayout>
 
+            <Button x:Name="FavoriteButton"
+        Text="♡ Add to Favorites"
+        BackgroundColor="#D7FF81"
+        FontFamily="PoppinsBold"
+        TextColor="Black"
+        Clicked="OnFavoriteClicked"
+        Margin="10"
+        CornerRadius="20"
+        HorizontalOptions="Center"/>
 
             <StackLayout>
                 <Label Text="Instructions" FontSize="20" FontFamily="PoppinsBold" Padding="10"/>

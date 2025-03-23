@@ -76,25 +76,13 @@
 
 
         <Tab
-        Title="Favorite"
-        Icon="favorite_icon.png">
-                <ShellContent
-        Title="Community"
-        ContentTemplate="{DataTemplate interface:FavPage}"
-        Route="FavPage" />
-        </Tab>
-
-        <Tab
         Title="Profile"
         Icon="profile_icon.png">
-                <ShellContent
+            <ShellContent
         Title="Profile"
         ContentTemplate="{DataTemplate interface:ProfilePage}"
         Route="CommunityPage" />
         </Tab>
-
-
-
 
     </TabBar>
 
