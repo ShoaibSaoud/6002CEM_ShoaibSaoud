@@ -3,6 +3,7 @@ using TheRecipeApp.Services;
 using Microsoft.Maui.Controls;
 using System;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace TheRecipeApp.Interfaces
 {
@@ -10,7 +11,7 @@ namespace TheRecipeApp.Interfaces
     {
         private readonly DatabaseService _databaseService;
         private Recipe _recipe;
-        private bool _isFavorite; 
+        private bool _isFavorite;
 
         public RecipeDetailPage(Recipe selectedRecipe)
         {
@@ -21,7 +22,7 @@ namespace TheRecipeApp.Interfaces
             BindingContext = _recipe;
 
             LoadRecipeDetails(_recipe.Id);
-            CheckFavoriteStatus(); 
+            CheckFavoriteStatus();
         }
 
         // Loads recipe details (asynchronously)
@@ -33,7 +34,11 @@ namespace TheRecipeApp.Interfaces
                 var recipeDetail = await apiService.GetRecipeDetailAsync(recipeId);
                 if (recipeDetail != null)
                 {
-                    _recipe = recipeDetail; 
+                    _recipe = recipeDetail;
+
+              
+                    _recipe.Summary = RemoveHtmlTags(_recipe.Summary);
+                    Console.WriteLine($"Cleaned Summary: {_recipe.Summary}");
                     BindingContext = _recipe;
                 }
             }
@@ -43,7 +48,13 @@ namespace TheRecipeApp.Interfaces
             }
         }
 
-        //chekcs if the recipe is already favorited
+        // Removing HTML tags from the summary text
+        private string RemoveHtmlTags(string input)
+        {
+            return Regex.Replace(input, "<.*?>", string.Empty);
+        }
+
+        // Checks if the recipe is already favorited
         private async void CheckFavoriteStatus()
         {
             _isFavorite = await _databaseService.IsFavorite(_recipe.Id);

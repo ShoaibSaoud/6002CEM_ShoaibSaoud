@@ -79,11 +79,12 @@
                 </CollectionView>
             </StackLayout>
 
-            <StackLayout>
-                <Label Text="Recipe Description:" FontSize="20" Padding="10" FontFamily="PoppinsBold"/>
+            <StackLayout Padding="10">
+                <Label Text="Recipe Description:" FontSize="20" FontFamily="PoppinsBold"/>
                 <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand"/>
-                <Label Text="{Binding Summary}" FontFamily="PoppinsRegular" FontSize="14" Padding="10"/>
+                <Label Text="{Binding Summary}" FontFamily="PoppinsRegular" FontSize="14"/>
             </StackLayout>
+
 
             <StackLayout>
                 <Label Text="Dietary Information:" FontSize="20" Padding="5" FontFamily="PoppinsBold"/>
