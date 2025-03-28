@@ -28,7 +28,8 @@
                                FontFamily="PoppinsBold"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
-                               TranslationY="-3"/>
+                               TranslationY="-5"
+                               TranslationX="5"/>
                     </Frame>
 
                     <!-- Username -->

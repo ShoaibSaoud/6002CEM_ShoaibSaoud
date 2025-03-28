@@ -39,6 +39,7 @@ namespace TheRecipeApp.Models
         public object OriginalId { get; set; }
         public float SpoonacularScore { get; set; }
         public string SpoonacularSourceUrl { get; set; }
+        public string FirstLetter => !string.IsNullOrEmpty(SourceName) ? SourceName[0].ToString().ToUpper() : "N";
 
     }
 

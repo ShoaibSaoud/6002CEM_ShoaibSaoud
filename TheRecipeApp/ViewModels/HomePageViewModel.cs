@@ -1,7 +1,7 @@
 ﻿using TheRecipeApp.Models;
 using TheRecipeApp.Services;
 using System.Collections.ObjectModel;
-using TheRecipeApp.Services;
+
 
 namespace TheRecipeApp.ViewModels
 {

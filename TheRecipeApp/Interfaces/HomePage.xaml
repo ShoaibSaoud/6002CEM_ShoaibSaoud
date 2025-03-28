@@ -45,7 +45,7 @@
                     <Entry Placeholder="Search Your Recipe"
                            FontFamily="PoppinsRegular"
                            TextColor="Black"
-                           PlaceholderColor="Gray"
+                           PlaceholderColor="Gray" 
                            Text="{Binding SearchText}" 
                            ReturnType="Search"
                            Completed="OnSearchIconTapped" />
