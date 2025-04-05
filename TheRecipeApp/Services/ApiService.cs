@@ -6,7 +6,7 @@ namespace TheRecipeApp.Services
 {
     public class ApiService
     {
-        private const string ApiKey = "e89e15e2f777414ab2a72903eb351856";
+        private const string ApiKey = "026cbc15b82846e589307b5ef3981d75";
         private const string ApiBaseUrl = "https://api.spoonacular.com/recipes";
 
         private readonly HttpClient _client;
